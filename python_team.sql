@@ -290,23 +290,6 @@ INSERT INTO `b_classification` VALUES (2, '运动类', '2024-02-04 16:39:19.3973
 INSERT INTO `b_classification` VALUES (3, '文艺类', '2024-02-04 16:39:24.633287');
 INSERT INTO `b_classification` VALUES (4, '电子类', '2024-02-04 16:39:59.841608');
 
--- ----------------------------
--- Table structure for b_comment
--- ----------------------------
-DROP TABLE IF EXISTS `b_comment`;
-CREATE TABLE `b_comment`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `content` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `comment_time` datetime(6) NULL DEFAULT NULL,
-  `like_count` int(11) NOT NULL,
-  `thing_id` bigint(20) NULL DEFAULT NULL,
-  `user_id` bigint(20) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `b_comment_thing_id_57ab492b_fk_b_thing_id`(`thing_id`) USING BTREE,
-  INDEX `b_comment_user_id_46f0670f_fk_b_user_id`(`user_id`) USING BTREE,
-  CONSTRAINT `b_comment_thing_id_57ab492b_fk_b_thing_id` FOREIGN KEY (`thing_id`) REFERENCES `b_thing` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `b_comment_user_id_46f0670f_fk_b_user_id` FOREIGN KEY (`user_id`) REFERENCES `b_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of b_comment
